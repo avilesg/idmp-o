@@ -2225,6 +2225,13 @@ References or links are expressed either by an object property or a unique ident
 		<rdfs:subClassOf rdf:resource="&idmp-sub;Matter"/>
 		<rdfs:subClassOf>
 			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cmns-col;hasConstituent"/>
+				<owl:onClass rdf:resource="&idmp-sub;Moiety"/>
+				<owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minQualifiedCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
 				<owl:onProperty rdf:resource="&idmp-sub;hasMolecularStructure"/>
 				<owl:onClass rdf:resource="&idmp-sub;MolecularStructure"/>
 				<owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
@@ -2232,6 +2239,7 @@ References or links are expressed either by an object property or a unique ident
 		</rdfs:subClassOf>
 		<rdfs:label>molecular entity</rdfs:label>
 		<rdfs:seeAlso rdf:resource="&chebi;23367"/>
+		<owl:disjointWith rdf:resource="&idmp-sub;PhysicalSubstance"/>
 		<owl:disjointWith rdf:resource="&idmp-sub;Substance"/>
 		<skos:definition>constitutionally or isotopically distinct atom, molecule, ion, ion pair, radical, radical ion, complex, conformer etc., identifiable as a separately distinguishable entity</skos:definition>
 		<cmns-av:directSource>PAC, 1994, 66, 1077. (Glossary of terms used in physical organic chemistry (IUPAC Recommendations 1994)) on page 1142</cmns-av:directSource>
@@ -2241,13 +2249,28 @@ References or links are expressed either by an object property or a unique ident
 		<rdfs:subClassOf rdf:resource="&cmns-cls;Classifier"/>
 		<rdfs:subClassOf>
 			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cmns-id;isIdentifiedBy"/>
+				<owl:onClass rdf:resource="&idmp-sub;SubstanceIdentifier"/>
+				<owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minQualifiedCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cmns-dsg;hasName"/>
+				<owl:onClass rdf:resource="&idmp-sub;SubstanceName"/>
+				<owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minQualifiedCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
 				<owl:onProperty rdf:resource="&cmns-cls;classifies"/>
 				<owl:someValuesFrom rdf:resource="&idmp-sub;MolecularEntity"/>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:label>molecular entity classifier</rdfs:label>
 		<skos:definition>classifier for molecular entities such as atoms, molecules, ions or molecular groups</skos:definition>
-		<cmns-av:explanatoryNote>Most molecular entity classifiers are defined by the common molecular structure of the molecular entities, but others may use the chemical function as criterion.</cmns-av:explanatoryNote>
+		<skos:note>Molecular entity classifies are often signified or identified by the same names or codes that are used for the classification of the physical substances (stuff) that are composed of these molecules.</skos:note>
+		<skos:note>Most molecular entity classifiers are defined by the common molecular structure of the molecular entities, but others may use the chemical function as criterion.</skos:note>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&idmp-sub;MolecularFormula">
@@ -3591,13 +3614,6 @@ N is the total numberof all the molecules.</skos:definition>
 				<owl:onProperty rdf:resource="&idmp-sub;hasOpticalActivity"/>
 				<owl:onClass rdf:resource="&idmp-sub;OpticalRotationValue"/>
 				<owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&cmns-col;hasConstituent"/>
-				<owl:onClass rdf:resource="&idmp-sub;Moiety"/>
-				<owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minQualifiedCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
@@ -6138,6 +6154,13 @@ N is the total numberof all the molecules.</skos:definition>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cmns-col;hasConstituent"/>
+				<owl:onClass rdf:resource="&idmp-sub;Moiety"/>
+				<owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minQualifiedCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
 				<owl:onProperty rdf:resource="&cmns-doc;specifies"/>
 				<owl:onClass rdf:resource="&idmp-sub;PhysicalSubstance"/>
 				<owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minQualifiedCardinality>
@@ -6374,7 +6397,7 @@ N is the total numberof all the molecules.</skos:definition>
 				<owl:someValuesFrom>
 					<owl:Class>
 						<owl:unionOf rdf:parseType="Collection">
-							<rdf:Description rdf:about="&idmp-sub;PhysicalSubstance">
+							<rdf:Description rdf:about="&idmp-sub;MolecularEntityClassifier">
 							</rdf:Description>
 							<rdf:Description rdf:about="&idmp-sub;Substance">
 							</rdf:Description>
@@ -6388,6 +6411,7 @@ N is the total numberof all the molecules.</skos:definition>
 		<skos:note>A unique identifier shall be assigned to approved and investigational substances, excipients and impurities, solvents, ions, fragments and moieties, each of which shall be defined as a Substance.</skos:note>
 		<skos:note>A variety of chemical and biological nomenclature systems have been developed that describe the pharmacological actions of drugs. Functional naming systems such as INN or USAN are valuable in either describing molecular structure or the biological actions of a substance. However, a unique identifier based on such classification systems may result in greater maintenance requirements because classification schemes often require broad ranges of expertise as well as a controlled terminology. Translation is also always a problem with any semantic system. Once a substance has been defined and assigned a unique identifier it is essential that this identifier be permanently associated with the substance. A substance shall only have one unique identifier. This will necessitate the generation of detailed rules to define substances that will be presented in the ISO/TS 19844 implementation guide.</skos:note>
 		<skos:note>Each substance and specified substance shall have only one permanently associated unique identifier (called respectively Substance-ID, resp. Specified Substance Group 1, 2, 3 or 4-ID) that shall not indicate the order of submission to the registration process. The Substance ID and Specified Substance Group 1, 2, 3 or 4-ID are per definition unique and therefore global.</skos:note>
+		<skos:note>In chemical information models,  the substance identifiers are often used both to refer to the chemical substance (element or compound) and to refer to the type of molecular entities, the substance is composed of.</skos:note>
 		<skos:note>The unique identifiers can be publicly available when the defining information along with the name or company code is publicly available in a single reference. The use of the identifier shall be royalty free.</skos:note>
 		<cmns-av:adaptedFrom>ISO 11238:2018 Health informatics - Identification of medicinal products (IDMP) - Data elements and structures for the unique identification and exchange of regulated information on substances, clause 6.5</cmns-av:adaptedFrom>
 		<cmns-av:synonym>Substance ID</cmns-av:synonym>
@@ -6436,7 +6460,7 @@ N is the total numberof all the molecules.</skos:definition>
 				<owl:someValuesFrom>
 					<owl:Class>
 						<owl:unionOf rdf:parseType="Collection">
-							<rdf:Description rdf:about="&idmp-sub;PhysicalSubstance">
+							<rdf:Description rdf:about="&idmp-sub;MolecularEntity">
 							</rdf:Description>
 							<rdf:Description rdf:about="&idmp-sub;Substance">
 							</rdf:Description>
@@ -6457,6 +6481,7 @@ N is the total numberof all the molecules.</skos:definition>
 		<skos:definition>name or company code associated with the substance</skos:definition>
 		<skos:example>During the early stages of clinical development, the preferred term for a substance can be its company code. In later stages, an INN can be associated with the substance and become the preferred term for that substance.</skos:example>
 		<skos:note>At least one substance name or company code shall be associated with each substance. The element group &apos;Substance Name&apos; consists of the following attributes: &apos;Substance Name&apos;, &apos;Substance Name Type&apos;, &apos;Language&apos;, &apos;Substance Name Domain&apos; and &apos;Jurisdiction&apos;. If the name is an official name, the naming authority used shall be identified by the &apos;Official Name Type&apos; as well as the &apos;Official Name Status&apos;.</skos:note>
+		<skos:note>In chemical information models, substance name are often used both to refer to the chemical substance (element or compound) and to refer to the type of molecular entities, the substance is composed of.</skos:note>
 		<skos:note>It is anticipated that every substance will have a name in English. Synonyms can be associated with a substance. Translations of English names to other languages can also be accommodated. Language and Jurisdiction will be described using ISO standards.</skos:note>
 		<cmns-av:explanatoryNote>Although ISO 11238 does not provide any guidance on substance nomenclature, it does provide a structure for the capture of names and codes that are used to refer to a substance. For the purpose of ISO 11238 there are at the moment sixteen types of names, e.g. Official names, systematic names, other names, brand names, company codes, homeopathic names, specified homeopathic names, plasma-derived names, Specified Substance Group 1, 2 and 3 names.</cmns-av:explanatoryNote>
 		<cmns-av:explanatoryNote>Names for a given substance and/or standardized names submitted by another party may be available in the substance terminology. Indication that a name is the preferred name or term by which a substance will be referred to in a given jurisdiction and domain may be presented in the terminology. This preferred term may vary depending on jurisdiction or domain or the state of development of a given substance.</cmns-av:explanatoryNote>
