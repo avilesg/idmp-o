@@ -6,7 +6,7 @@ PREFIX idmp-sub:    <https://spec.pistoiaalliance.org/idmp/ontology/ISO/ISO11238
 PREFIX rdf:         <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>
  
-SELECT DISTINCT ?Product(SAMPLE(?ProductLabel) AS ?ProductName)
+SELECT DISTINCT ?Product (SAMPLE(?ProductLabel) AS ?ProductName) ?ProductSpecificationType
 
 WHERE {
     # Bind Variable Substance <$ActiveMoiety>
@@ -37,10 +37,13 @@ WHERE {
       		cmns-pts:isPlayedBy ?Substance;
       		a/rdfs:subClassOf* idmp-sub:Ingredient
   		] 
-  	]
-
+  	] .
+	# Return the type of Product
+    ?Product a ?ProductSpecificationType .
+  	?ProductSpecificationType rdfs:subClassOf* idmp-mprd:ProductSpecification .
+    
     # Optionally, get the name of the Product
     OPTIONAL{?Product  rdfs:label  ?ProductLabel }
   
-} GROUP BY ?Product
+} GROUP BY ?Product ?ProductSpecificationType
 ORDER BY ?Product
