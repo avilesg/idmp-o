@@ -1,0 +1,282 @@
+# ex-Diclofenac is exported at May 11, 2023, 6:34:29 AM (Coordinated Universal Time)
+@prefix cmns-av:     <https://www.omg.org/spec/Commons/AnnotationVocabulary/> .
+@prefix cmns-cls:    <https://www.omg.org/spec/Commons/Classifiers/> .
+@prefix cmns-col:    <https://www.omg.org/spec/Commons/Collections/> .
+@prefix cmns-cxtdsg: <https://www.omg.org/spec/Commons/ContextualDesignators/> .
+@prefix cmns-doc:    <https://www.omg.org/spec/Commons/Documents/> .
+@prefix cmns-dsg:    <https://www.omg.org/spec/Commons/Designators/> .
+@prefix cmns-id:     <https://www.omg.org/spec/Commons/Identifiers/> .
+@prefix cmns-prd:    <https://www.omg.org/spec/Commons/ProductsAndServices/> .
+@prefix cmns-pts:    <https://www.omg.org/spec/Commons/PartiesAndSituations/> .
+@prefix cmns-qtu:    <https://www.omg.org/spec/Commons/QuantitiesAndUnits/> .
+@prefix cmns-ra:     <https://www.omg.org/spec/Commons/RegistrationAuthorities/> .
+@prefix cmns-txt:    <https://www.omg.org/spec/Commons/TextDatatype/> .
+@prefix dct:         <http://purl.org/dc/terms/> .
+@prefix edqm:        <https://data.pistoiaalliance.org/idmp/edqm/> .
+@prefix idmp-chg:    <https://spec.pistoiaalliance.org/idmp/ontology/META/ChangeManagement/> .
+@prefix idmp-dic:    <https://spec.pistoiaalliance.org/idmp/ontology/EXT/Examples/Diclofenac/> .
+@prefix idmp-mprd:   <https://spec.pistoiaalliance.org/idmp/ontology/ISO/ISO11615-MedicinalProducts/> .
+@prefix idmp-phdf:   <https://spec.pistoiaalliance.org/idmp/ontology/ISO/ISO11239-PharmaceuticalDoseForms/> .
+@prefix idmp-sub:    <https://spec.pistoiaalliance.org/idmp/ontology/ISO/ISO11238-Substances/> .
+@prefix idmp-uom:    <https://spec.pistoiaalliance.org/idmp/ontology/ISO/ISO11240-UnitsOfMeasurement/> .
+@prefix idmp-x:      <https://spec.pistoiaalliance.org/idmp/ontology/ISO/ExtensionTBD/> .
+@prefix lcc-3166-1:  <https://www.omg.org/spec/LCC/Countries/ISO3166-1-CountryCodes/> .
+@prefix owl:         <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:         <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:        <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:        <http://www.w3.org/2004/02/skos/core#> .
+@prefix spor-o:      <https://spor.ema.europa.eu/omswi/#/organisations/> .
+@prefix spor-p:      <https://spor.ema.europa.eu/smswi/#/products/> .
+@prefix spor-r:      <https://spor.ema.europa.eu/rmswi/#/lists/> .
+@prefix spor-s:      <https://spor.ema.europa.eu/smswi/#/substances/> .
+@prefix xsd:         <http://www.w3.org/2001/XMLSchema#> .
+
+idmp-dic:  rdf:type                owl:Ontology ;
+        rdfs:label                 "IDMP-O Example Diclofenac" ;
+        dct:abstract               "This ontology provides an example for the WHO-UMC use case on strength and dose forms" ;
+        dct:license                "http://opensource.org/licenses/MIT"^^xsd:anyURI ;
+        owl:imports                idmp-sub: , idmp-uom: , idmp-mprd: , idmp-chg: , cmns-av: , cmns-cls: , cmns-col: , cmns-dsg: , cmns-id: , cmns-pts: , cmns-prd: , cmns-qtu: , cmns-ra: , cmns-txt: ;
+        skos:editorialNote         "Concepts or properties starting with the https://spec.pistoiaalliance.org/idmp/ontology/ISO/ExtensionTBD/... do indicate that this requires extension to the current IDMP-O version." ;
+        idmp-chg:hasMaturityLevel  idmp-chg:Informative ;
+        cmns-av:copyright          "Copyright (c) 2022-2023 EDM Council, Inc." , "Copyright (c) 2022-2023 Pistoia Alliance, Inc." .
+
+idmp-dic:PhPID0123456789
+        cmns-id:identifies  idmp-dic:DiclofenacOrifarmPhP , idmp-dic:KinespirPhP , idmp-dic:NeodolarenPhP , idmp-dic:ArtridenePhP .
+
+idmp-dic:DiclofenacOrifarmPhP
+        rdf:type               idmp-mprd:PharmaceuticalProduct ;
+        rdfs:label             "Diclofenac Orifarm (PhP)"@en ;
+        idmp-phdf:hasDoseForm  idmp-dic:DiclofenacOrifarmADF ;
+        cmns-col:isIncludedIn  idmp-dic:DiclofenacOrifarmMP ;
+        cmns-dsg:isDefinedIn   idmp-dic:DiclofenacOrifarmPhPComposition ;
+        cmns-pts:manifests     idmp-dic:DiclofenacDiethylamineIngredientInDiclofenacOrifarm .
+
+idmp-dic:KinespirPhP  rdf:type  idmp-mprd:PharmaceuticalProduct ;
+        rdfs:label             "Kinespir (PhP)"@en ;
+        idmp-mprd:hasDoseForm  idmp-dic:KinespirADF ;
+        cmns-col:isIncludedIn  idmp-dic:KinespirMP ;
+        cmns-dsg:isDefinedIn   idmp-dic:KinespirPhPComposition ;
+        cmns-pts:manifests     idmp-dic:DiclofenacDiethylamineIngredientInKinespir .
+
+idmp-dic:NeodolarenPhP
+        rdf:type               idmp-mprd:PharmaceuticalProduct ;
+        rdfs:label             "Neodolaren (PhP)"@en ;
+        idmp-mprd:hasDoseForm  idmp-dic:NeodolarenADF ;
+        cmns-col:isIncludedIn  idmp-dic:NeodolarenMP ;
+        cmns-dsg:isDefinedIn   idmp-dic:NeodolarenPhPComposition ;
+        cmns-pts:manifests     idmp-dic:DiclofenacDiethylamineIngredientInNeodolaren .
+
+idmp-dic:ArtridenePhP
+        rdf:type               idmp-mprd:PharmaceuticalProduct ;
+        rdfs:label             "Artridene (PhP)"@en ;
+        idmp-mprd:hasDoseForm  idmp-dic:ArtrideneADF ;
+        cmns-col:isIncludedIn  idmp-dic:ArtrideneMP ;
+        cmns-dsg:isDefinedIn   idmp-dic:ArtridenePhPComposition ;
+        cmns-pts:manifests     idmp-dic:DiclofenacDiethylamineIngredientInArtridene .
+
+edqm:PDF-10546250  idmp-phdf:hasAdministrationMethod
+                edqm:AME-0005 ;
+        idmp-phdf:hasBasicDoseForm  edqm:BDF-0073 ;
+        idmp-phdf:hasIntendedSite   edqm:ISI-0022 ;
+        idmp-phdf:hasReleaseCharacteristic
+                edqm:RCA-0047 .
+
+idmp-dic:DiclofenacOrifarmMP
+        rdf:type                    idmp-mprd:MedicinalProduct ;
+        rdfs:label                  "Diclofenac Orifarm (MP)"@en ;
+        idmp-mprd:hasAuthorization  idmp-dic:DiclofenacOrifarmMA ;
+        cmns-col:comprises          idmp-dic:DiclofenacOrifarmPhP ;
+        cmns-pts:playsRole          idmp-dic:DiclofenacOrifarmAMP .
+
+idmp-dic:DiclofenacOrifarmAMP
+        rdf:type             idmp-mprd:AuthorizedMedicinalProduct ;
+        rdfs:label           "Diclofenac Orifarm (AMP)"@en ;
+        cmns-pts:isPlayedBy  idmp-dic:DiclofenacOrifarmMP .
+
+idmp-dic:DiclofenacOrifarmMA
+        rdf:type                      idmp-mprd:MarketingAuthorization ;
+        rdfs:label                    "Marketing Authorization for Diclofenac Orifarm in Sweden"@en ;
+        idmp-mprd:hasAuthorizedParty  spor-o:ORG-100002342 ;
+        cmns-cxtdsg:appliesTo         idmp-dic:DiclofenacOrifarmMP ;
+        cmns-cxtdsg:isApplicableIn    lcc-3166-1:Sweden .
+
+idmp-dic:DiclofenacOrifarmADF
+        rdf:type                    idmp-mprd:AdministrableDoseForm ;
+        rdfs:label                  "Diclofenac Orifarm (ADF)"@en ;
+        idmp-phdf:hasAdministrationMethod
+                edqm:AME-0005 ;
+        idmp-phdf:hasBasicDoseForm  edqm:BDF-0073 ;
+        idmp-phdf:hasIntendedSite   edqm:ISI-0022 ;
+        idmp-phdf:hasReleaseCharacteristic
+                edqm:RCA-0047 ;
+        idmp-mprd:isDoseFormOf      idmp-dic:DiclofenacOrifarmPhP ;
+        cmns-cxtdsg:isApplicableIn  lcc-3166-1:Sweden ;
+        cmns-doc:refersTo           edqm:PDF-10546250 .
+
+idmp-dic:DiclofenacOrifarmPhPComposition
+        rdf:type                idmp-mprd:ProductComposition ;
+        idmp-sub:hasIngredient  idmp-dic:DiclofenacDiethylamineIngredientInDiclofenacOrifarm ;
+        cmns-dsg:defines        idmp-dic:DiclofenacOrifarmPhP .
+
+idmp-dic:DiclofenacDiethylamineIngredientInDiclofenacOrifarm
+        rdf:type                 idmp-sub:ActiveIngredient , idmp-mprd:ActiveIngredientEntireSubstanceBasisOfStrength , <https://spor.ema.europa.eu/rmswi/#/lists/100000072050/terms/100000072072> ;
+        idmp-mprd:hasStrength    [ rdf:type                 idmp-mprd:Strength ;
+                                   cmns-qtu:hasDenominator  [ rdf:type                     cmns-qtu:QuantityValue ;
+                                                              cmns-qtu:hasMeasurementUnit  <https://spor.ema.europa.eu/rmswi/#/lists/100000110633/terms/100000110654> ;
+                                                              cmns-qtu:hasNumericValue     1
+                                                            ] ;
+                                   cmns-qtu:hasNumerator    [ rdf:type                     cmns-qtu:QuantityValue ;
+                                                              cmns-qtu:hasMeasurementUnit  <https://spor.ema.europa.eu/rmswi/#/lists/100000110633/terms/100000110655> ;
+                                                              cmns-qtu:hasNumericValue     11.6
+                                                            ]
+                                 ] ;
+        cmns-pts:isManifestedIn  idmp-dic:DiclofenacOrifarmPhP ;
+        cmns-pts:isPlayedBy      <https://gsrs.ncats.nih.gov/api/v1/substances/6TGQ35Z71K> ;
+        cmns-pts:isRealizedIn    idmp-dic:DiclofenacOrifarmPhPComposition .
+
+idmp-dic:KinespirMP  rdf:type       idmp-mprd:MedicinalProduct ;
+        rdfs:label                  "Kinespir (MP)"@en ;
+        idmp-mprd:hasAuthorization  idmp-dic:KinespirMA ;
+        cmns-col:comprises          idmp-dic:KinespirPhP ;
+        cmns-pts:playsRole          idmp-dic:KinespirAMP .
+
+idmp-dic:KinespirAMP  rdf:type  idmp-mprd:AuthorizedMedicinalProduct ;
+        rdfs:label           "Kinespir (AMP)"@en ;
+        cmns-pts:isPlayedBy  idmp-dic:KinespirMP .
+
+idmp-dic:KinespirMA  rdf:type         idmp-mprd:MarketingAuthorization ;
+        rdfs:label                    "Marketing Authorization for Kinespir in Belgium"@en ;
+        idmp-mprd:hasAuthorizedParty  spor-o:ORG-100001110 ;
+        cmns-cxtdsg:appliesTo         idmp-dic:KinespirMP ;
+        cmns-cxtdsg:isApplicableIn    lcc-3166-1:Belgium .
+
+idmp-dic:KinespirADF  rdf:type      idmp-mprd:AdministrableDoseForm ;
+        rdfs:label                  "Kinespir (ADF)"@en ;
+        idmp-phdf:hasAdministrationMethod
+                edqm:AME-0005 ;
+        idmp-phdf:hasBasicDoseForm  edqm:BDF-0073 ;
+        idmp-phdf:hasIntendedSite   edqm:ISI-0022 ;
+        idmp-phdf:hasReleaseCharacteristic
+                edqm:RCA-0047 ;
+        idmp-mprd:isDoseFormOf      idmp-dic:KinespirPhP ;
+        cmns-cxtdsg:isApplicableIn  lcc-3166-1:Belgium ;
+        cmns-doc:refersTo           edqm:PDF-10546250 .
+
+idmp-dic:KinespirPhPComposition
+        rdf:type                idmp-mprd:ProductComposition ;
+        idmp-sub:hasIngredient  idmp-dic:DiclofenacDiethylamineIngredientInKinespir ;
+        cmns-dsg:defines        idmp-dic:KinespirPhP .
+
+idmp-dic:DiclofenacDiethylamineIngredientInKinespir
+        rdf:type                        idmp-sub:ActiveIngredient , <https://spor.ema.europa.eu/rmswi/#/lists/100000072050/terms/100000072072> , idmp-mprd:ActiveIngredientReferenceSubstanceBasisOfStrength ;
+        idmp-mprd:hasReferenceStrength  [ rdf:type                 idmp-mprd:Strength ;
+                                          cmns-qtu:hasDenominator  [ rdf:type                     cmns-qtu:QuantityValue ;
+                                                                     cmns-qtu:hasMeasurementUnit  <https://spor.ema.europa.eu/rmswi/#/lists/100000110633/terms/100000110654> ;
+                                                                     cmns-qtu:hasNumericValue     1
+                                                                   ] ;
+                                          cmns-qtu:hasNumerator    [ rdf:type                     cmns-qtu:QuantityValue ;
+                                                                     cmns-qtu:hasMeasurementUnit  <https://spor.ema.europa.eu/rmswi/#/lists/100000110633/terms/100000110655> ;
+                                                                     cmns-qtu:hasNumericValue     10.0
+                                                                   ]
+                                        ] ;
+        idmp-mprd:hasReferenceSubstance
+                <https://gsrs.ncats.nih.gov/api/v1/substances/QTG126297Q> ;
+        cmns-pts:isManifestedIn         idmp-dic:KinespirPhP ;
+        cmns-pts:isPlayedBy             <https://gsrs.ncats.nih.gov/api/v1/substances/6TGQ35Z71K> ;
+        cmns-pts:isRealizedIn           idmp-dic:KinespirPhPComposition .
+
+idmp-dic:NeodolarenMP
+        rdf:type                    idmp-mprd:MedicinalProduct ;
+        rdfs:label                  "Neodolaren (MP)"@en ;
+        idmp-mprd:hasAuthorization  idmp-dic:NeodolarenMA ;
+        cmns-col:comprises          idmp-dic:NeodolarenPhP ;
+        cmns-pts:playsRole          idmp-dic:NeodolarenAMP .
+
+idmp-dic:NeodolarenAMP
+        rdf:type             idmp-mprd:AuthorizedMedicinalProduct ;
+        rdfs:label           "Neodolaren (AMP)"@en ;
+        cmns-pts:isPlayedBy  idmp-dic:NeodolarenMP .
+
+idmp-dic:NeodolarenMA
+        rdf:type                      idmp-mprd:MarketingAuthorization ;
+        rdfs:label                    "Marketing Authorization for Neodolaren in Mexico"@en ;
+        idmp-mprd:hasAuthorizedParty  idmp-dic:CarnotLaboratorios ;
+        cmns-cxtdsg:appliesTo         idmp-dic:NeodolarenMP ;
+        cmns-cxtdsg:isApplicableIn    lcc-3166-1:Mexico .
+
+idmp-dic:NeodolarenADF
+        rdf:type                    idmp-mprd:AdministrableDoseForm ;
+        rdfs:label                  "Neodolaren (ADF)"@en ;
+        idmp-phdf:hasBasicDoseForm  edqm:BDF-0073 ;
+        idmp-mprd:isDoseFormOf      idmp-dic:NeodolarenPhP ;
+        cmns-cxtdsg:isApplicableIn  lcc-3166-1:Mexico .
+
+idmp-dic:NeodolarenPhPComposition
+        rdf:type                idmp-mprd:ProductComposition ;
+        idmp-sub:hasIngredient  idmp-dic:DiclofenacDiethylamineIngredientInNeodolaren ;
+        cmns-dsg:defines        idmp-dic:NeodolarenPhP .
+
+idmp-dic:DiclofenacDiethylamineIngredientInNeodolaren
+        rdf:type                        idmp-sub:ActiveIngredient , <https://spor.ema.europa.eu/rmswi/#/lists/100000072050/terms/100000072072> , idmp-mprd:ActiveIngredientReferenceSubstanceBasisOfStrength ;
+        idmp-mprd:hasReferenceStrength  [ rdf:type                 idmp-mprd:Strength ;
+                                          cmns-qtu:hasDenominator  [ rdf:type                     cmns-qtu:QuantityValue ;
+                                                                     cmns-qtu:hasMeasurementUnit  <https://spor.ema.europa.eu/rmswi/#/lists/100000110633/terms/100000110654> ;
+                                                                     cmns-qtu:hasNumericValue     1
+                                                                   ] ;
+                                          cmns-qtu:hasNumerator    [ rdf:type                     cmns-qtu:QuantityValue ;
+                                                                     cmns-qtu:hasMeasurementUnit  <https://spor.ema.europa.eu/rmswi/#/lists/100000110633/terms/100000110655> ;
+                                                                     cmns-qtu:hasNumericValue     10.0
+                                                                   ]
+                                        ] ;
+        idmp-mprd:hasReferenceSubstance
+                <https://gsrs.ncats.nih.gov/api/v1/substances/QTG126297Q> ;
+        cmns-pts:isManifestedIn         idmp-dic:NeodolarenPhP ;
+        cmns-pts:isPlayedBy             <https://gsrs.ncats.nih.gov/api/v1/substances/6TGQ35Z71K> ;
+        cmns-pts:isRealizedIn           idmp-dic:NeodolarenPhPComposition .
+
+idmp-dic:ArtrideneMP  rdf:type      idmp-mprd:MedicinalProduct ;
+        rdfs:label                  "Artridene (MP)"@en ;
+        idmp-mprd:hasAuthorization  idmp-dic:ArtrideneMA ;
+        cmns-col:comprises          idmp-dic:ArtridenePhP ;
+        cmns-pts:playsRole          idmp-dic:ArtrideneAMP .
+
+idmp-dic:ArtrideneAMP
+        rdf:type             idmp-mprd:AuthorizedMedicinalProduct ;
+        rdfs:label           "Artridene (AMP)"@en ;
+        cmns-pts:isPlayedBy  idmp-dic:ArtrideneMP .
+
+idmp-dic:ArtrideneMA  rdf:type        idmp-mprd:MarketingAuthorization ;
+        rdfs:label                    "Marketing Authorization for Artridene in Colombia"@en ;
+        idmp-mprd:hasAuthorizedParty  idmp-dic:Siegfried ;
+        cmns-cxtdsg:appliesTo         idmp-dic:ArtrideneMP ;
+        cmns-cxtdsg:isApplicableIn    lcc-3166-1:Colombia .
+
+idmp-dic:ArtrideneADF
+        rdf:type                    idmp-mprd:AdministrableDoseForm ;
+        rdfs:label                  "Artridene (ADF)"@en ;
+        idmp-phdf:hasBasicDoseForm  edqm:BDF-0073 ;
+        idmp-mprd:isDoseFormOf      idmp-dic:ArtridenePhP ;
+        cmns-cxtdsg:isApplicableIn  lcc-3166-1:Colombia .
+
+idmp-dic:ArtridenePhPComposition
+        rdf:type                idmp-mprd:ProductComposition ;
+        idmp-sub:hasIngredient  idmp-dic:DiclofenacDiethylamineIngredientInArtridene ;
+        cmns-dsg:defines        idmp-dic:ArtridenePhP .
+
+idmp-dic:DiclofenacDiethylamineIngredientInArtridene
+        rdf:type                        idmp-sub:ActiveIngredient , <https://spor.ema.europa.eu/rmswi/#/lists/100000072050/terms/100000072072> , idmp-mprd:ActiveIngredientReferenceSubstanceBasisOfStrength ;
+        idmp-mprd:hasReferenceStrength  [ rdf:type                 idmp-mprd:Strength ;
+                                          cmns-qtu:hasDenominator  [ rdf:type                     cmns-qtu:QuantityValue ;
+                                                                     cmns-qtu:hasMeasurementUnit  <https://spor.ema.europa.eu/rmswi/#/lists/100000110633/terms/100000110654> ;
+                                                                     cmns-qtu:hasNumericValue     1
+                                                                   ] ;
+                                          cmns-qtu:hasNumerator    [ rdf:type                     cmns-qtu:QuantityValue ;
+                                                                     cmns-qtu:hasMeasurementUnit  <https://spor.ema.europa.eu/rmswi/#/lists/100000110633/terms/100000110655> ;
+                                                                     cmns-qtu:hasNumericValue     10.0
+                                                                   ]
+                                        ] ;
+        idmp-mprd:hasReferenceSubstance
+                <https://gsrs.ncats.nih.gov/api/v1/substances/QTG126297Q> ;
+        cmns-pts:isManifestedIn         idmp-dic:ArtridenePhP ;
+        cmns-pts:isPlayedBy             <https://gsrs.ncats.nih.gov/api/v1/substances/6TGQ35Z71K> ;
+        cmns-pts:isRealizedIn           idmp-dic:ArtridenePhPComposition .
