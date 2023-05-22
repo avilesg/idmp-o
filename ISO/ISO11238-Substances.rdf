@@ -8229,7 +8229,6 @@ N is the total numberof all the molecules.</skos:definition>
 	<owl:ObjectProperty rdf:about="&idmp-sub;hasIngredient">
 		<rdfs:subPropertyOf rdf:resource="&cmns-pts;hasRole"/>
 		<rdfs:label>has ingredient</rdfs:label>
-		<rdfs:label>has specified ingredient</rdfs:label>
 		<rdfs:range rdf:resource="&idmp-sub;Ingredient"/>
 		<skos:definition>relates a substance or product composition to an ingredient of that composition</skos:definition>
 		<cmns-av:usageNote>This property should be used primarily in a manufacturing context where differentiation of substances or pharmaceutical products in a product from other elements that play roles in the manufacturing context is important.</cmns-av:usageNote>
